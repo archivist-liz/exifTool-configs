@@ -4,7 +4,7 @@
     # new XMP namespaces (eg. xxx) must be added to the Main XMP table:
     'Image::ExifTool::XMP::Main' => {
         # namespace definition for examples 8 to 11
-        iaea => { # <-- must be the same as the NAMESPACE prefix
+        premis => { # <-- must be the same as the NAMESPACE prefix
             SubDirectory => {
                 TagTable => 'Image::ExifTool::UserDefined::premis',
                 # (see the definition of this table below)
