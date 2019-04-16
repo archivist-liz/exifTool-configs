@@ -21,7 +21,7 @@
 # an ExifTool family 1 group name of 'XMP-xxx'.
 %Image::ExifTool::UserDefined::premis = (
     GROUPS => { 0 => 'XMP', 1 => 'XMP-premis' },
-    NAMESPACE => { 'premis' => 'http://www.loc.gov/premis/v3' },
+    NAMESPACE => { 'premis' => 'http://www.loc.gov/premis/rdf/v3/' },
     WRITABLE => 'string', # (default to string-type tags)
     EventType => {  },
     EventDateTime => { Writable => 'date' },
