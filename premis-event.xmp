@@ -1,0 +1,56 @@
+<!--
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Following an example from: Copyright 2008 PDFlib GmbH
+www.pdflib.com
+
+XMP schema description for PREMIS 3.0 describing an Event.
+
+Schema name: PREMIS Version 3.0
+Schema namespace URI: http://www.loc.gov/premis/v3/
+Preferred schema namespace prefix: premis
+
+Properties in this schema, their types, and meaning:
+
+EventType         String  PREMIS Event according to http://www.http://id.loc.gov/vocabulary/preservation/eventType.html
+EventDateTime			Date		Date of the Event
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <!--
+ PDF/A-conforming XMP extension schema container schema 
+-->
+<rdf:Description xmlns:pdfaExtension="http://www.aiim.org/pdfa/ns/extension/" xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#" xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#" rdf:about="">
+ <!--
+ Container for all embedded extension schema descriptions 
+-->
+<pdfaExtension:schemas>
+<rdf:Bag>
+<rdf:li rdf:parseType="Resource">
+ <!--  Optional description of schema  -->
+<pdfaSchema:schema>PREMIS Version 3.0</pdfaSchema:schema>
+ <!--  Schema namespace URI  -->
+<pdfaSchema:namespaceURI>http://www.loc.gov/premis/v3/</pdfaSchema:namespaceURI>
+ <!--  Preferred schema namespace prefix  -->
+<pdfaSchema:prefix>premis</pdfaSchema:prefix>
+ <!--  Description of schema properties  -->
+<pdfaSchema:property>
+<rdf:Seq>
+<rdf:li rdf:parseType="Resource">
+<pdfaProperty:name>EventType</pdfaProperty:name>
+<pdfaProperty:valueType>Text</pdfaProperty:valueType>
+<pdfaProperty:category>internal</pdfaProperty:category>
+<pdfaProperty:description>Event Type according to http://id.loc.gov/vocabulary/preservation/eventType.html</pdfaProperty:description>
+</rdf:li>
+<rdf:li rdf:parseType="Resource">
+<pdfaProperty:name>EventDateTime</pdfaProperty:name>
+<pdfaProperty:valueType>Date</pdfaProperty:valueType>
+<pdfaProperty:category>internal</pdfaProperty:category>
+<pdfaProperty:description>Date when document was digitized</pdfaProperty:description>
+</rdf:li>
+</rdf:Seq>
+</pdfaSchema:property>
+</rdf:li>
+</rdf:Bag>
+</pdfaExtension:schemas>
+</rdf:Description>
