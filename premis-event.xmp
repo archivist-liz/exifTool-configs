@@ -17,22 +17,23 @@ EventDateTime			Date		Date of the Event
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 -->
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
- <!--
- PDF/A-conforming XMP extension schema container schema 
--->
-<rdf:Description xmlns:pdfaExtension="http://www.aiim.org/pdfa/ns/extension/" xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#" xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#" rdf:about="">
- <!--
- Container for all embedded extension schema descriptions 
--->
-<pdfaExtension:schemas>
-<rdf:Bag>
-<rdf:li rdf:parseType="Resource">
- <!--  Optional description of schema  -->
-<pdfaSchema:schema>PREMIS Version 3.0</pdfaSchema:schema>
- <!--  Schema namespace URI  -->
-<pdfaSchema:namespaceURI>http://www.loc.gov/premis/v3/</pdfaSchema:namespaceURI>
- <!--  Preferred schema namespace prefix  -->
-<pdfaSchema:prefix>premis</pdfaSchema:prefix>
+ <!-- PDF/A-conforming XMP extension schema container schema -->
+<rdf:Description rdf:about=""
+ xmlns:pdfaExtension="http://www.aiim.org/pdfa/ns/extension/" 
+ xmlns:pdfaSchema="http://www.aiim.org/pdfa/ns/schema#" 
+ xmlns:pdfaProperty="http://www.aiim.org/pdfa/ns/property#"
+ xmlns:pdfaType="http://www.aiim.org/pdfa/ns/type#"
+ xmlns:pdfaField="http://www.aiim.org/pdfa/ns/field#" >
+ <!-- Container for all embedded extension schema descriptions -->
+  <pdfaExtension:schemas>
+   <rdf:Bag>
+    <rdf:li rdf:parseType="Resource">
+     <!--  Optional description of schema  -->
+     <pdfaSchema:schema>PREMIS Version 3.0</pdfaSchema:schema>
+     <!--  Schema namespace URI  -->
+     <pdfaSchema:namespaceURI>http://www.loc.gov/premis/v3/</pdfaSchema:namespaceURI>
+     <!--  Preferred schema namespace prefix  -->
+     <pdfaSchema:prefix>premis</pdfaSchema:prefix>
  <!--  Description of schema properties  -->
 <pdfaSchema:property>
 <rdf:Seq>
@@ -54,4 +55,9 @@ EventDateTime			Date		Date of the Event
 </rdf:Bag>
 </pdfaExtension:schemas>
 </rdf:Description>
+<rdf:Description xmlns:premis="http://www.loc.gov/premis/v3/" rdf:about="">
+<premis:EventType>Digitization</premis:EventType>
+<premis:EventDateTime>2016-03-11T14:45:12+01:00</premis:EventDateTime>
+</rdf:Description>
+</rdf:RDF>
 </rdf:RDF>
