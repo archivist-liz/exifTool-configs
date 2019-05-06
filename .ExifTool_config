@@ -10,14 +10,7 @@
                 # (see the definition of this table below)
             },
         },
-        # namespace definition for examples 8 to 11
-        iaea => { # <-- must be the same as the NAMESPACE prefix
-            SubDirectory => {
-                TagTable => 'Image::ExifTool::UserDefined::iaea',
-                # (see the definition of this table below)
-            },
-        },
-        # add more user-defined XMP namespaces here...
+       # add more user-defined XMP namespaces here...
 		 premis => { # <-- must be the same as the NAMESPACE prefix
              SubDirectory => {
                  TagTable => 'Image::ExifTool::UserDefined::premis',
@@ -66,21 +59,7 @@
 			},
 		},
  );
-# This is a basic example of the definition for a new XMP namespace.
-# This table is referenced through a SubDirectory tag definition
-# in the %Image::ExifTool::UserDefined definition above.
-# The namespace prefix for these tags is 'xxx', which corresponds to
-# an ExifTool family 1 group name of 'XMP-xxx'.
- %Image::ExifTool::UserDefined::iaea = (
-     GROUPS => { 0 => 'XMP', 1 => 'XMP-iaea' },
-     NAMESPACE => { 'iaea' => 'http://ns.iaea.org/' },
-     WRITABLE => 'string', # (default to string-type tags)
-     Facility => { WRITABLE => 'string' },
-     DateOfSampling => { WRITABLE => 'date' },
-     DateSampleReceived => { WRITABLE => 'date' },
-     NumberOfSeals => { WRITABLE => 'integer' },
-     SealNumbers => { WRITABLE => 'string' },
- );
+
 
 
 # This is a basic example of the definition for a new XMP namespace.
