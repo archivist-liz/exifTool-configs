@@ -3,14 +3,27 @@
 %Image::ExifTool::UserDefined = (
     # new XMP namespaces (eg. xxx) must be added to the Main XMP table:
     'Image::ExifTool::XMP::Main' => {
-        # namespace definition for examples 8 to 11
-        premis => { # <-- must be the same as the NAMESPACE prefix
+		# namespace definition for examples 8 to 11
+        pdfaExtension => { # <-- must be the same as the NAMESPACE prefix
             SubDirectory => {
-                TagTable => 'Image::ExifTool::UserDefined::premis',
+                TagTable => 'Image::ExifTool::UserDefined::pdfaExtension',
+                # (see the definition of this table below)
+            },
+        },
+        # namespace definition for examples 8 to 11
+        iaea => { # <-- must be the same as the NAMESPACE prefix
+            SubDirectory => {
+                TagTable => 'Image::ExifTool::UserDefined::iaea',
                 # (see the definition of this table below)
             },
         },
         # add more user-defined XMP namespaces here...
+		 premis => { # <-- must be the same as the NAMESPACE prefix
+             SubDirectory => {
+                 TagTable => 'Image::ExifTool::UserDefined::premis',
+                # (see the definition of this table below)
+            },
+        },
     },
 );
 
@@ -19,13 +32,71 @@
 # in the %Image::ExifTool::UserDefined definition above.
 # The namespace prefix for these tags is 'xxx', which corresponds to
 # an ExifTool family 1 group name of 'XMP-xxx'.
-%Image::ExifTool::UserDefined::premis = (
-    GROUPS => { 0 => 'XMP', 1 => 'XMP-premis' },
-    NAMESPACE => { 'premis' => 'http://www.loc.gov/premis/v3/' },
-    WRITABLE => 'string', # (default to string-type tags)
-    EventType => {  },
-    EventDateTime => { Writable => 'date' },
-);
+ %Image::ExifTool::UserDefined::pdfaExtension = (
+     GROUPS => { 0 => 'XMP', 1 => 'XMP-pdfaExtension' },
+     NAMESPACE => { 'pdfaExtension' => 'http://www.aiim.org/pdfa/ns/extension/' },
+     WRITABLE => 'string', # (default to string-type tags)
+     schemas => { 
+		List => 'Bag',
+		Struct => {
+			NAMESPACE => {'pdfaSchema' => 'http://www.aiim.org/pdfa/ns/schema#'},
+			schema => {},
+			namespaceURI => {},
+			prefix => {},
+			property => { 
+				List => 'Seq',
+				Struct => {
+					NAMESPACE => {'pdfaProperty' => 'http://www.aiim.org/pdfa/ns/property#'},
+						name => {},
+						valueType => {},
+						category => {},
+						description => {},
+					}
+				}
+			},
+			valueType => { 
+				List => 'Seq',
+				Struct => {
+					NAMESPACE => {'pdfaType' => 'http://www.aiim.org/pdfa/ns/type#'},
+						type => {},
+						namespaceURI => {},
+						prefix => {},
+						description => {},
+				}
+			},
+		},
+ );
+# This is a basic example of the definition for a new XMP namespace.
+# This table is referenced through a SubDirectory tag definition
+# in the %Image::ExifTool::UserDefined definition above.
+# The namespace prefix for these tags is 'xxx', which corresponds to
+# an ExifTool family 1 group name of 'XMP-xxx'.
+ %Image::ExifTool::UserDefined::iaea = (
+     GROUPS => { 0 => 'XMP', 1 => 'XMP-iaea' },
+     NAMESPACE => { 'iaea' => 'http://ns.iaea.org/' },
+     WRITABLE => 'string', # (default to string-type tags)
+     Facility => { WRITABLE => 'string' },
+     DateOfSampling => { WRITABLE => 'date' },
+     DateSampleReceived => { WRITABLE => 'date' },
+     NumberOfSeals => { WRITABLE => 'integer' },
+     SealNumbers => { WRITABLE => 'string' },
+ );
+
+
+# This is a basic example of the definition for a new XMP namespace.
+# This table is referenced through a SubDirectory tag definition
+# in the %Image::ExifTool::UserDefined definition above.
+# The namespace prefix for these tags is 'xxx', which corresponds to
+# an ExifTool family 1 group name of 'XMP-xxx'.
+ %Image::ExifTool::UserDefined::premis = (
+     GROUPS => { 0 => 'XMP', 1 => 'XMP-premis' },
+     NAMESPACE => { 'premis' => 'http://www.loc.gov/premis/v3' },
+     WRITABLE => 'string', # (default to string-type tags)
+     EventType => { WRITABLE => 'string' },
+     EventDateTime => { WRITABLE => 'date' },
+ );
+ 
+ print "Working!\n";
 
 #------------------------------------------------------------------------------
 1;  #end
