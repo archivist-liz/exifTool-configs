@@ -1,3 +1,9 @@
-C:\exiftool-11.32\exiftool.exe -XMP-pdfaExtension:schemasProperty="{name=EventType, valueType=Text, category=internal, description=Event Types according to LOC}" \filePath\fileName.pdf
+Print XMP Metadata to an XML File:
+C:\exiftool-11.32\exiftool.exe -XMP -b \filePath\fileName.pdf > \filePath\fileName.xml
+
+Add/define the XMP extension schema:
+C:\exiftool-11.32\exiftool.exe -XMP-pdfaExtension:schemasProperty+="{name=EventType, valueType=Text, category=internal, description=Event Types according to LOC}" \filePath\fileName.pdf
 C:\exiftool-11.32\exiftool.exe -XMP-pdfaExtension:schemasProperty+="{name=EventDateTime, valueType=Date, category=internal, description=Date digitized}" \filePath\fileName.pdf
+
+Sample command to add values for the new;y created PREMIS tags (as defined in the schema and the config file).
 C:\exiftool-11.32\exiftool.exe "-XMP-premis:EventDateTime<FileCreateDate" "-XMP-premis:EventType=migration" \filePath\fileName.pdf
