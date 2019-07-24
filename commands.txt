@@ -2,7 +2,7 @@ Print XMP Metadata to an XML File:
 C:\exiftool-11.32\exiftool.exe -XMP -b \filePath\fileName.pdf > \filePath\fileName.xml
 
 Add/define the XMP extension schema (based on the premis sample and corresponding config file):
-C:\exiftool-11.32\exiftool.exe -XMP-pdfaExtension:schemas+="{schema=premisV3, namespaceURI=http://www.loc.gov/premis/v3, prefix=premis, property=[{name=EventType, valueType=Text, category=internal, description=Event Types according to LOC}, {name=EventDateTime, valueType=Date, category=internal, description=Date digitized}]}" \filePath\fileName.pdf
+C:\exiftool-11.32\exiftool.exe -XMP-pdfaExtension:schemas+="{schema=premisV3, namespaceURI=http://www.loc.gov/premis/v3/, prefix=premis, property=[{name=EventType, valueType=Text, category=internal, description=Event Types according to LOC}, {name=EventDateTime, valueType=Date, category=internal, description=Date digitized}]}" \filePath\fileName.pdf
 
 Sample command to add values for the newly created PREMIS tags (as defined in the schema and the config file).
 C:\exiftool-11.32\exiftool.exe "-XMP-premis:EventDateTime<CreateDate" "-XMP-premis:EventType=migration" \filePath\fileName.pdf
