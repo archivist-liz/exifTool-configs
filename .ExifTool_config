@@ -3,8 +3,7 @@
 %Image::ExifTool::UserDefined = (
     # new XMP namespaces (eg. xxx) must be added to the Main XMP table:
     'Image::ExifTool::XMP::Main' => {
-		# namespace definition for examples 8 to 11
-        pdfaExtension => { # <-- must be the same as the NAMESPACE prefix
+		 pdfaExtension => { # <-- must be the same as the NAMESPACE prefix
             SubDirectory => {
                 TagTable => 'Image::ExifTool::UserDefined::pdfaExtension',
                 # (see the definition of this table below)
@@ -14,6 +13,13 @@
 		 premis => { # <-- must be the same as the NAMESPACE prefix
              SubDirectory => {
                  TagTable => 'Image::ExifTool::UserDefined::premis',
+                # (see the definition of this table below)
+            },
+        },
+	# add more user-defined XMP namespaces here...
+		 liz => { # <-- must be the same as the NAMESPACE prefix
+             SubDirectory => {
+                 TagTable => 'Image::ExifTool::UserDefined::liz',
                 # (see the definition of this table below)
             },
         },
@@ -73,9 +79,19 @@
      WRITABLE => 'string', # (default to string-type tags)
      EventType => { WRITABLE => 'string' },
      EventDateTime => { WRITABLE => 'date' },
+     EventAgent => { WRITABLE => 'string' },
  );
  
- print "Working!\n";
+
+ %Image::ExifTool::UserDefined::liz = (
+     GROUPS => { 0 => 'XMP', 1 => 'XMP-liz' },
+     NAMESPACE => { 'liz' => 'http://www.mywebsite.com/liz/v1#' },
+     WRITABLE => 'string', # (default to string-type tags)
+     GitHubRepo => { WRITABLE => 'url'},
+     Message => { WRITABLE => 'string'},
+ );
+
+ #print "Working!\n";
 
 #------------------------------------------------------------------------------
 1;  #end
