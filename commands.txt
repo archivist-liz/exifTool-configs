@@ -1,14 +1,22 @@
 Print XMP Metadata to an XML File:
-C:\exiftool-11.32\exiftool.exe -XMP -b \filePath\fileName.pdf > \filePath\fileName.xml
+C:\exiftool\exiftool.exe -XMP -b \filePath\fileName.pdf > \filePath\fileName.xml
 
 Add/define the XMP extension schema (based on the premis sample and corresponding config file):
-(Windows) C:\exiftool-11.32\exiftool.exe -XMP-pdfaExtension:schemas+="{schema=premisV3, namespaceURI=http://www.loc.gov/premis/v3#, prefix=premis, property=[{name=EventType, valueType=Text, category=internal, description=Event Types according to LOC}, {name=EventDateTime, valueType=Date, category=internal, description=Date digitized}]}" \filePath\fileName.pdf
+(Windows) C:\exiftool\exiftool.exe -XMP-pdfaExtension:schemas+="{schema=premisV3, namespaceURI=http://www.loc.gov/premis/v3#, prefix=premis, property=[{name=EventType, valueType=Text, category=internal, description=Event Types according to LOC}, {name=EventDateTime, valueType=Date, category=internal, description=Date digitized}, {name=EventAgent, valueType=Text, category=internal, description=Agent of preservation event}]}" \filePath\fileName.pdf
 
-(Linux) ~/ExifTool/./exiftool  -XMP-pdfaExtension:schemas+="{schema=premisV3, namespaceURI=http://www.loc.gov/premis/v3#, prefix=premis, property=[{name=EventType, valueType=Text, category=internal, description=Event Types according to LOC}, {name=EventDateTime, valueType=Date, category=internal, description=Date digitized}]}" /filepath/*.pdf
+(Linux) ~/ExifTool/./exiftool  -XMP-pdfaExtension:schemas+="{schema=premisV3, namespaceURI=http://www.loc.gov/premis/v3#, prefix=premis, property=[{name=EventType, valueType=Text, category=internal, description=Event Types according to LOC}, {name=EventDateTime, valueType=Date, category=internal, description=Date digitized}, {name=EventAgent, valueType=Text, category=internal, description=Agent of preservation event}]}" /filepath/*.pdf
 
 Sample command to add values for the newly created PREMIS tags (as defined in the schema and the config file).
-C:\exiftool-11.32\exiftool.exe "-XMP-premis:EventDateTime=2019-09-28" "-XMP-premis:EventType=migration" \filePath\fileName.pdf
+(Windows) C:\exiftool\exiftool.exe "-XMP-premis:EventDateTime=2019-09-28" "-XMP-premis:EventType=migration" "-XMP-premis:EventAgent=Archivist-Liz" \filePath\fileName.pdf
 
+(Linux) ~/ExifTool/./exiftool "-XMP-premis:EventDateTime=2019-09-28" "-XMP-premis:EventType=migration" "-XMP-premis:EventAgent=Archivist-Liz" /filepath/*.pdf
 
-Sample command to add values for the newly created PREMIS tags (as defined in the schema and the config file) via csv.
-C:\exiftool-11.32\exiftool.exe -csv=yourTags.csv \filePath\fileName.pdf
+Sample command to add values for the newly created PREMIS tags (as defined in the schema and the config file) via csv. If you use -csv= it will overwrite any metadata assigned to that tag. If you prefer to add additional metadata, use -csv+=
+
+(Windows) C:\exiftool\exiftool.exe -csv=yourTags.csv \filePath\fileName.pdf
+
+(Linux) ~/ExifTool/./exiftool -csv=yourTags.csv /filepath/*.pdf
+
+Restore files (if something goes wrong):
+
+(Linux) ~/ExifTool/./exiftool -restore_original /filepath/*.pdf
