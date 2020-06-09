@@ -2,7 +2,7 @@
 Sample configuration file for EXIFTool for generating and embedding a PDF/A-compliant custom XMP Schema.
 
 # Prerequisites:
-The current version of ExifTool: https://sno.phy.queensu.ca/~phil/exiftool/. See the following note about naming and saving your config file, taken from the sample config file from the ExifTool documentation (https://sno.phy.queensu.ca/~phil/exiftool/config.html): 
+The current version of ExifTool: https://exiftool.org/. See the following note about naming and saving your config file, taken from the sample config file from the ExifTool documentation (https://exiftool.org/config.html): 
 
 "To activate this file, rename it to ".ExifTool_config" and place it in your home directory or the exiftool application directory.  (On Windows and Mac systems this must be done via the command line since the GUI's don't allow filenames to begin with a dot.  Use the "rename" command in Windows or "mv" on the Mac.)"
 
@@ -15,4 +15,8 @@ For more information, please see PDF Association's TechNote 0009: XMP Extension 
 # This Example
 
 This config file for EXIFTool has created an XMP extension based on PREMIS event metadata by creating xmp-premis namespace. For the initial test, I will be only be trying to implement limited Event metadata according to the PREMIS 3.0 Schema: http://www.loc.gov/premis/v3. 
+I have also added an eponymous custom XMP extension. 
 
+# Further documentation
+
+I did a screencast of the basic commands to imbed the custom schema and metadata using asciinema. Here is the link: <a href="https://asciinema.org/a/YrXLFccqO9fEczXB07RSG1JEO" target="_blank"><img src="https://asciinema.org/a/YrXLFccqO9fEczXB07RSG1JEO.svg" /></a>
