@@ -19,7 +19,6 @@ I have also added an eponymous custom XMP extension.
 
 # Further documentation
 
-I did a screencast of the basic commands to imbed the custom schema and metadata using asciinema. You can view this here: <a href="https://asciinema.org/a/YrXLFccqO9fEczXB07RSG1JEO" target="_blank"><img src="https://asciinema.org/a/YrXLFccqO9fEczXB07RSG1JEO.svg" /></a>
-I also uploaded this screencast as well as a screencast showing a bulk upload of metadata from a csv file to YouTube:
+I did a screencast of the basic commands to imbed the custom schema and metadata as well as a screencast showing a bulk upload of metadata from a csv file to YouTube:
 Basic commands: https://youtu.be/iKs2i4gK6Rw
 Bulk upload: https://youtu.be/7orTruMhB9U
